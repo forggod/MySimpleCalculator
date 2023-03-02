@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
+import android.widget.ImageButton
 import android.widget.TextView
 
 class MainActivity : AppCompatActivity() {
@@ -44,7 +45,6 @@ class MainActivity : AppCompatActivity() {
                 val str = "${display.text}${getText(R.string.zero)}"
                 display.setText(str)
             }
-            TODO("Добавить 0.0")
         }
         btn_one.setOnClickListener {
             val str = "${display.text}${getText(R.string.one)}"
@@ -83,7 +83,10 @@ class MainActivity : AppCompatActivity() {
             display.setText(str)
         }
         btn_point.setOnClickListener {
-            if (display.text.toString().indexOf('.') == -1) {
+            if (display.text.toString() == "") {
+                val str = "0."
+                display.setText(str)
+            } else if (display.text.toString().indexOf('.') == -1) {
                 val str = "${display.text}."
                 display.setText(str)
             }
