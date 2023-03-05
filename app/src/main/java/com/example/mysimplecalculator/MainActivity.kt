@@ -92,43 +92,30 @@ class MainActivity : AppCompatActivity() {
             }
         }
         btn_add.setOnClickListener {
-            print(display.text.toString())
-            if (display.text.toString() != "") {
-                result += display.text.toString().toFloat()
-                tv_operator.text = getText(R.string.add)
-                display.setText("")
-                tv_result.text = "$result"
-            }
+            tv_operator.text = getText(R.string.add)
         }
         btn_subtract.setOnClickListener {
-            if (display.text.toString() != "") {
-                result -= display.text.toString().toFloat()
-                tv_operator.text = getText(R.string.subtract)
-                display.setText("")
-                tv_result.text = "$result"
-            }
+            tv_operator.text = getText(R.string.subtract)
         }
         btn_multiply.setOnClickListener {
-            if (display.text.toString() != "") {
-                result *= display.text.toString().toFloat()
-                tv_operator.text = getText(R.string.multiply)
-                display.setText("")
-                tv_result.text = "$result"
-            }
+            tv_operator.text = getText(R.string.multiply)
         }
         btn_divide.setOnClickListener {
-            if (display.text.toString() != "") {
-                result /= display.text.toString().toFloat()
-                tv_operator.text = getText(R.string.divide)
-                display.setText("")
-                tv_result.text = "$result"
-            }
+            tv_operator.text = getText(R.string.divide)
         }
         btn_equals.setOnClickListener {
             if (display.text.toString() != "") {
-                result = display.text.toString().toFloat()
-                tv_operator.text = getText(R.string.equals)
+                when (tv_operator.text.toString()) {
+                    getText(R.string.add) -> result += display.text.toString().toFloat()
+                    getText(R.string.subtract) -> result -= display.text.toString().toFloat()
+                    getText(R.string.multiply) -> result *= display.text.toString().toFloat()
+                    getText(R.string.divide) -> result /= display.text.toString().toFloat()
+                    else -> result = display.text.toString().toFloat()
+                }
+
                 tv_result.text = "$result"
+                tv_operator.text = getText(R.string.equals)
+                tv_operator.text = getText(R.string.equals)
                 display.setText("")
             }
         }
