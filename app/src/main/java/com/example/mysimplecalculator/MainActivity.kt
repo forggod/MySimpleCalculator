@@ -4,7 +4,6 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
-import android.widget.ImageButton
 import android.widget.TextView
 
 class MainActivity : AppCompatActivity() {
@@ -12,77 +11,70 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        var result: Float = 0f
-
         val display: EditText = findViewById(R.id.textView_input)
-        val tv_operator: TextView = findViewById(R.id.textView_operator)
-        val tv_result: TextView = findViewById(R.id.textView_result)
+        val tvOperator: TextView = findViewById(R.id.textView_operator)
+        val tvSecondDigit: TextView = findViewById(R.id.textView_result)
 
-        val btn_zero: Button = findViewById(R.id.button_zero)
-        val btn_one: Button = findViewById(R.id.button_one)
-        val btn_two: Button = findViewById(R.id.button_two)
-        val btn_three: Button = findViewById(R.id.button_three)
-        val btn_four: Button = findViewById(R.id.button_four)
-        val btn_five: Button = findViewById(R.id.button_five)
-        val btn_six: Button = findViewById(R.id.button_six)
-        val btn_seven: Button = findViewById(R.id.button_seven)
-        val btn_eight: Button = findViewById(R.id.button_eight)
-        val btn_nine: Button = findViewById(R.id.button_nine)
-        val btn_point: Button = findViewById(R.id.button_point)
-        val btn_add: Button = findViewById(R.id.button_add)
-        val btn_subtract: Button = findViewById(R.id.button_subtract)
-        val btn_multiply: Button = findViewById(R.id.button_multiply)
-        val btn_divide: Button = findViewById(R.id.button_divide)
-        val btn_equals: Button = findViewById(R.id.button_equals)
+        val btnZero: Button = findViewById(R.id.button_zero)
+        val btnOne: Button = findViewById(R.id.button_one)
+        val btnTwo: Button = findViewById(R.id.button_two)
+        val btnThree: Button = findViewById(R.id.button_three)
+        val btnFour: Button = findViewById(R.id.button_four)
+        val btnFive: Button = findViewById(R.id.button_five)
+        val btnSix: Button = findViewById(R.id.button_six)
+        val btnSeven: Button = findViewById(R.id.button_seven)
+        val btnEight: Button = findViewById(R.id.button_eight)
+        val btnNine: Button = findViewById(R.id.button_nine)
+        val btnPoint: Button = findViewById(R.id.button_point)
+        val btnAdd: Button = findViewById(R.id.button_add)
+        val btnSubtract: Button = findViewById(R.id.button_subtract)
+        val btnMultiply: Button = findViewById(R.id.button_multiply)
+        val btnDivide: Button = findViewById(R.id.button_divide)
+        val btnEquals: Button = findViewById(R.id.button_equals)
 
-        display.setOnClickListener {
-            if (getText(R.string.displays) == display.text) {
-                display.setText("")
-            }
-        }
-        btn_zero.setOnClickListener {
+        btnZero.setOnClickListener {
             if (display.text.toString() != "0") {
                 val str = "${display.text}${getText(R.string.zero)}"
                 display.setText(str)
             }
         }
-        btn_one.setOnClickListener {
+        btnOne.setOnClickListener {
             val str = "${display.text}${getText(R.string.one)}"
             display.setText(str)
         }
-        btn_two.setOnClickListener {
+        btnTwo.setOnClickListener {
             val str = "${display.text}${getText(R.string.two)}"
             display.setText(str)
         }
-        btn_three.setOnClickListener {
+        btnThree.setOnClickListener {
             val str = "${display.text}${getText(R.string.three)}"
             display.setText(str)
         }
-        btn_four.setOnClickListener {
+        btnFour.setOnClickListener {
             val str = "${display.text}${getText(R.string.four)}"
             display.setText(str)
         }
-        btn_five.setOnClickListener {
+        btnFive.setOnClickListener {
             val str = "${display.text}${getText(R.string.five)}"
             display.setText(str)
         }
-        btn_six.setOnClickListener {
+        btnSix.setOnClickListener {
             val str = "${display.text}${getText(R.string.six)}"
             display.setText(str)
         }
-        btn_seven.setOnClickListener {
+        btnSeven.setOnClickListener {
             val str = "${display.text}${getText(R.string.seven)}"
             display.setText(str)
         }
-        btn_eight.setOnClickListener {
+        btnEight.setOnClickListener {
             val str = "${display.text}${getText(R.string.eight)}"
             display.setText(str)
         }
-        btn_nine.setOnClickListener {
+        btnNine.setOnClickListener {
             val str = "${display.text}${getText(R.string.nine)}"
             display.setText(str)
         }
-        btn_point.setOnClickListener {
+        btnPoint.setOnClickListener {
             if (display.text.toString() == "") {
                 val str = "0."
                 display.setText(str)
@@ -91,32 +83,46 @@ class MainActivity : AppCompatActivity() {
                 display.setText(str)
             }
         }
-        btn_add.setOnClickListener {
-            tv_operator.text = getText(R.string.add)
-        }
-        btn_subtract.setOnClickListener {
-            tv_operator.text = getText(R.string.subtract)
-        }
-        btn_multiply.setOnClickListener {
-            tv_operator.text = getText(R.string.multiply)
-        }
-        btn_divide.setOnClickListener {
-            tv_operator.text = getText(R.string.divide)
-        }
-        btn_equals.setOnClickListener {
+        btnAdd.setOnClickListener {
+            tvOperator.text = getText(R.string.add)
             if (display.text.toString() != "") {
-                when (tv_operator.text.toString()) {
+                tvSecondDigit.text = display.text.toString()
+                display.setText("")
+            }
+        }
+        btnSubtract.setOnClickListener {
+            tvOperator.text = getText(R.string.subtract)
+            if (display.text.toString() != "") {
+                tvSecondDigit.text = display.text.toString()
+                display.setText("")
+            }
+        }
+        btnMultiply.setOnClickListener {
+            tvOperator.text = getText(R.string.multiply)
+            if (display.text.toString() != "") {
+                tvSecondDigit.text = display.text.toString()
+                display.setText("")
+            }
+        }
+        btnDivide.setOnClickListener {
+            tvOperator.text = getText(R.string.divide)
+            if (display.text.toString() != "") {
+                tvSecondDigit.text = display.text.toString()
+                display.setText("")
+            }
+        }
+        btnEquals.setOnClickListener {
+            if (display.text.toString() != "" && tvSecondDigit.text.toString() != "") {
+                var result = tvSecondDigit.text.toString().toFloat()
+                when (tvOperator.text.toString()) {
                     getText(R.string.add) -> result += display.text.toString().toFloat()
                     getText(R.string.subtract) -> result -= display.text.toString().toFloat()
                     getText(R.string.multiply) -> result *= display.text.toString().toFloat()
                     getText(R.string.divide) -> result /= display.text.toString().toFloat()
-                    else -> result = display.text.toString().toFloat()
                 }
-
-                tv_result.text = "$result"
-                tv_operator.text = getText(R.string.equals)
-                tv_operator.text = getText(R.string.equals)
-                display.setText("")
+                display.setText("$result")
+                tvOperator.text = ""
+                tvSecondDigit.text = ""
             }
         }
     }
