@@ -84,32 +84,76 @@ class MainActivity : AppCompatActivity() {
             }
         }
         btnAdd.setOnClickListener {
-            tvOperator.text = getText(R.string.add)
             if (display.text.toString() != "") {
-                tvSecondDigit.text = display.text.toString()
+                if (tvSecondDigit.text.toString() != "") {
+                    var result = tvSecondDigit.text.toString().toFloat()
+                    when (tvOperator.text.toString()) {
+                        getText(R.string.add) -> result += display.text.toString().toFloat()
+                        getText(R.string.subtract) -> result -= display.text.toString().toFloat()
+                        getText(R.string.multiply) -> result *= display.text.toString().toFloat()
+                        getText(R.string.divide) -> result /= display.text.toString().toFloat()
+                    }
+                    tvSecondDigit.text = result.toString()
+                } else {
+                    tvSecondDigit.text = display.text.toString()
+                }
                 display.setText("")
             }
+            tvOperator.text = getText(R.string.add)
         }
         btnSubtract.setOnClickListener {
-            tvOperator.text = getText(R.string.subtract)
             if (display.text.toString() != "") {
-                tvSecondDigit.text = display.text.toString()
+                if (tvSecondDigit.text.toString() != "") {
+                    var result = tvSecondDigit.text.toString().toFloat()
+                    when (tvOperator.text.toString()) {
+                        getText(R.string.add) -> result += display.text.toString().toFloat()
+                        getText(R.string.subtract) -> result -= display.text.toString().toFloat()
+                        getText(R.string.multiply) -> result *= display.text.toString().toFloat()
+                        getText(R.string.divide) -> result /= display.text.toString().toFloat()
+                    }
+                    tvSecondDigit.text = result.toString()
+                } else {
+                    tvSecondDigit.text = display.text.toString()
+                }
                 display.setText("")
             }
+            tvOperator.text = getText(R.string.subtract)
         }
         btnMultiply.setOnClickListener {
-            tvOperator.text = getText(R.string.multiply)
             if (display.text.toString() != "") {
-                tvSecondDigit.text = display.text.toString()
+                if (tvSecondDigit.text.toString() != "") {
+                    var result = tvSecondDigit.text.toString().toFloat()
+                    when (tvOperator.text.toString()) {
+                        getText(R.string.add) -> result += display.text.toString().toFloat()
+                        getText(R.string.subtract) -> result -= display.text.toString().toFloat()
+                        getText(R.string.multiply) -> result *= display.text.toString().toFloat()
+                        getText(R.string.divide) -> result /= display.text.toString().toFloat()
+                    }
+                    tvSecondDigit.text = result.toString()
+                } else {
+                    tvSecondDigit.text = display.text.toString()
+                }
                 display.setText("")
             }
+            tvOperator.text = getText(R.string.multiply)
         }
         btnDivide.setOnClickListener {
-            tvOperator.text = getText(R.string.divide)
             if (display.text.toString() != "") {
-                tvSecondDigit.text = display.text.toString()
+                if (tvSecondDigit.text.toString() != "") {
+                    var result = tvSecondDigit.text.toString().toFloat()
+                    when (tvOperator.text.toString()) {
+                        getText(R.string.add) -> result += display.text.toString().toFloat()
+                        getText(R.string.subtract) -> result -= display.text.toString().toFloat()
+                        getText(R.string.multiply) -> result *= display.text.toString().toFloat()
+                        getText(R.string.divide) -> result /= display.text.toString().toFloat()
+                    }
+                    tvSecondDigit.text = result.toString()
+                } else {
+                    tvSecondDigit.text = display.text.toString()
+                }
                 display.setText("")
             }
+            tvOperator.text = getText(R.string.divide)
         }
         btnEquals.setOnClickListener {
             if (display.text.toString() != "" && tvSecondDigit.text.toString() != "") {
